@@ -6,16 +6,16 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.edu.ies.vinicius.jpa.model.Person;
+import br.edu.ies.vinicius.jpa.type.MessageType;
 
 public class PersonController {
-
-	private static final String PERSISTENCE_UNIT_NAME = new String("pessoasPU");
 
 	private EntityManagerFactory entityManagerFactory;
 	private EntityManager entityManager;
 
 	public PersonController() {
-		this.entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		this.entityManagerFactory = Persistence
+				.createEntityManagerFactory(MessageType.PERSISTENCE_UNIT_NAME.getValue());
 		this.entityManager = entityManagerFactory.createEntityManager();
 	}
 
